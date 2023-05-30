@@ -1,11 +1,14 @@
 <div class="lista">
     <div class="fecha">
-        hora dia clima
+        <div id="dateNumber"></div>
+        <div id="dateText"></div>
+        <div id="dateMonth"></div>
+        <div id="dateYear"></div>
     </div>
-    <div>
-        <input type="text">
-        <button></button>
-        <button></button>
-    </div>
+    <form onsubmit="addNewTask()">
+        <input type="text" placeholder="Nueva tarea">
+        <button type="submit" class="addTaskButton"></button>
+        <button type="button" class="orderButton"></button>
+    </form>
     <div  id="tasksContainer"></div>
 </div>
