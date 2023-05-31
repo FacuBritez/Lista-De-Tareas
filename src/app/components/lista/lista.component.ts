@@ -29,10 +29,14 @@ export class ListaComponent implements OnInit, AfterViewInit {
     const tasksContainer = document.getElementById('tasksContainer') as HTMLElement;
     const { value } = (event.target as HTMLInputElement);
     if (!value) return;
+
+    //Se crea cada tarea
     const task = document.createElement('div');
-    task.classList.add('task', 'roundBorder');
+    task.classList.add('task');
     task.addEventListener('click', this.changeTaskState);
     task.textContent = value;
+
+    //Agrega la tarea nueva como primer nodo a la lista
     tasksContainer.prepend(task);
     (event.target as HTMLFormElement).reset();
   };
