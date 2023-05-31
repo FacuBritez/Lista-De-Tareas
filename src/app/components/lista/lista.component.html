@@ -5,10 +5,10 @@
         <div id="dateMonth"></div>
         <div id="dateYear"></div>
     </div>
-    <form onsubmit="addNewTask()">
-        <input type="text" placeholder="Nueva tarea">
-        <button type="submit" class="addTaskButton"></button>
-        <button type="button" class="orderButton"></button>
+    <form onsubmit="addNewTask(event)">
+        <input type="text" name="taskText" placeholder="Nueva tarea" autocomplete="off">
+        <button type="submit" class="addTaskButton">+</button>
+        <button type="button" class="orderButton" onclick="renderOrderedTasks()">ordenar</button>
     </form>
-    <div  id="tasksContainer"></div>
+    <div id="tasksContainer"></div>
 </div>

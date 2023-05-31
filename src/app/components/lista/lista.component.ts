@@ -24,11 +24,47 @@ export class ListaComponent implements OnInit, AfterViewInit {
     this.dateYear.textContent = this.date.toLocaleString('es', { year: 'numeric' });
   }
 
-  addNewTask = () => {
+  addNewTask = (event: Event) => {
+    event.preventDefault();
+    const tasksContainer = document.getElementById('tasksContainer') as HTMLElement;
+    const { value } = (event.target as HTMLInputElement);
+    if (!value) return;
+    const task = document.createElement('div');
+    task.classList.add('task', 'roundBorder');
+    task.addEventListener('click', this.changeTaskState);
+    task.textContent = value;
+    tasksContainer.prepend(task);
+    (event.target as HTMLFormElement).reset();
+  };
 
+  changeTaskState = (event: Event) => {
+    const target = event.target as HTMLElement | null;
+    if (target) {
+      target.classList.toggle('done');
+    }
+  };
+
+  order = () => {
+    const done: any[] = [];
+    const toDo: any[] = [];
+    const tasksContainer = document.getElementById('tasksContainer') as HTMLElement;
+    tasksContainer.childNodes.forEach(el => {
+      if (el instanceof Element) {
+        el.classList.contains('done') ? done.push(el) : toDo.push(el);
+      }
+    });
+    return [...toDo, ...done];
+  };
+
+  renderOrderedTasks = () => {
+    const tasksContainer = document.getElementById('tasksContainer') as HTMLElement;
+    this.order().forEach(el => tasksContainer.appendChild(el))
   }
 
-  ngOnInit() {}
+
+
+
+  ngOnInit() { }
 
   ngAfterViewInit() {
     this.setDate();
