@@ -45,9 +45,8 @@ export class ListaComponent implements OnInit, AfterViewInit {
     task.classList.add('task');
 
     //Añadiendo la opcion de tachar
-    /*
     task.addEventListener('click', this.changeTaskState);
-    */
+
    
 
     //Agrega la tarea nueva como primer nodo a la lista
@@ -55,14 +54,12 @@ export class ListaComponent implements OnInit, AfterViewInit {
     (document.getElementById('input') as HTMLInputElement).value = '';  
   };
 
-  /*
-  changeTaskState = (event: Event) => {
-    const target = event.target as HTMLElement | null;
-    if (target) {
-      target.classList.toggle('done');
-    }
+  changeTaskState(event: Event) {
+    const task = event.target as HTMLElement;
+    task.classList.toggle('done');
   };
 
+  /*
   order = () => {
     const done: any[] = [];
     const toDo: any[] = [];
