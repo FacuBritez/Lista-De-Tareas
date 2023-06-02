@@ -1,10 +1,11 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewEncapsulation } from '@angular/core';
 
 
 @Component({
   selector: 'app-lista',
   templateUrl: './lista.component.html',
-  styleUrls: ['./lista.component.sass']
+  styleUrls: ['./lista.component.sass'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ListaComponent implements OnInit, AfterViewInit {
   
