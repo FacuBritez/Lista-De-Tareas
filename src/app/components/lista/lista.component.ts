@@ -34,27 +34,25 @@ export class ListaComponent implements OnInit, AfterViewInit {
     const tasksContainer = document.getElementById('tasksContainer') as HTMLElement;
     const { value } = document.getElementById('input') as HTMLInputElement;
 
-    console.log(value);
-
     //En el caso de el input este vacio no retorna nada
     if (!value) return;
 
     //Se crea la nueva tarea
     const task = document.createElement('div');
+    task.textContent = value;
+
     //Se le agrega la clase task
     task.classList.add('task');
-
-    console.log(task)
 
     //Añadiendo la opcion de tachar
     /*
     task.addEventListener('click', this.changeTaskState);
     */
    
-    task.textContent = value;
 
     //Agrega la tarea nueva como primer nodo a la lista
     tasksContainer.prepend(task);
+    (document.getElementById('input') as HTMLInputElement).value = '';  
   };
 
   /*
