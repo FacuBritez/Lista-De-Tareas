@@ -1,20 +1,18 @@
 <div class="lista">
     <div class="date">
         <div class="dateRight">
-             <div id="dateNumber"></div>
-             <div>
-                 <div id="dateMonth"></div>
-                 <div id="dateYear"></div>
-             </div>
-         </div>
-         <div id="dateText"></div>
-     </div>
-    <div>
-        <form onsubmit="addNewTask(event)">
-            <input type="text" name="taskText" placeholder="Nueva tarea" autocomplete="off">
-            <button type="submit" class="addTaskButton">+</button>
-            <button type="button" class="orderButton" onclick="renderOrderedTasks()">ordenar</button>
-        </form>
+            <div id="dateNumber"></div>
+            <div>
+                <div id="dateMonth"></div>
+                <div id="dateYear"></div>
+            </div>
+        </div>
+        <div id="dateText"></div>
+    </div>
+    <div class="form">
+        <input type="text" id="input" placeholder="Nueva tarea" autocomplete="off">
+        <button (click)="addNewTask()" class="addTaskButton">+</button>
+        <button type="button" class="orderButton" onclick="renderOrderedTasks()">ordenar</button>
     </div>
     <div id="tasksContainer"></div>
 </div>
