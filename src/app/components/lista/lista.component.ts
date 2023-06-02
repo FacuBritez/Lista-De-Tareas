@@ -1,17 +1,22 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-lista',
   templateUrl: './lista.component.html',
   styleUrls: ['./lista.component.sass']
 })
 export class ListaComponent implements OnInit, AfterViewInit {
+  
+  //Declarando variables de la fecha
   dateNumber: HTMLElement | undefined;
   dateText: HTMLElement | undefined;
   dateMonth: HTMLElement | undefined;
   dateYear: HTMLElement | undefined;
   date = new Date();
 
+
+  //Esta funcion se ejecuta con el componente, da los valores de la fecha actual
   setDate = () => {
     this.dateNumber = document.getElementById('dateNumber') as HTMLElement;
     this.dateText = document.getElementById('dateText') as HTMLElement;
@@ -24,23 +29,35 @@ export class ListaComponent implements OnInit, AfterViewInit {
     this.dateYear.textContent = this.date.toLocaleString('es', { year: 'numeric' });
   }
 
-  addNewTask = (event: Event) => {
-    event.preventDefault();
+  
+  addNewTask = () => {
     const tasksContainer = document.getElementById('tasksContainer') as HTMLElement;
-    const { value } = (event.target as HTMLInputElement);
+    const { value } = document.getElementById('input') as HTMLInputElement;
+
+    console.log(value);
+
+    //En el caso de el input este vacio no retorna nada
     if (!value) return;
 
-    //Se crea cada tarea
+    //Se crea la nueva tarea
     const task = document.createElement('div');
+    //Se le agrega la clase task
     task.classList.add('task');
+
+    console.log(task)
+
+    //Añadiendo la opcion de tachar
+    /*
     task.addEventListener('click', this.changeTaskState);
+    */
+   
     task.textContent = value;
 
     //Agrega la tarea nueva como primer nodo a la lista
     tasksContainer.prepend(task);
-    (event.target as HTMLFormElement).reset();
   };
 
+  /*
   changeTaskState = (event: Event) => {
     const target = event.target as HTMLElement | null;
     if (target) {
@@ -64,9 +81,7 @@ export class ListaComponent implements OnInit, AfterViewInit {
     const tasksContainer = document.getElementById('tasksContainer') as HTMLElement;
     this.order().forEach(el => tasksContainer.appendChild(el))
   }
-
-
-
+  */
 
   ngOnInit() { }
 
