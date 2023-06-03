@@ -10,7 +10,7 @@
         <div id="dateText"></div>
     </div>
     <div class="form">
-        <input type="text" id="input" placeholder="Nueva tarea" autocomplete="off">
+        <input type="text" id="input" placeholder="Nueva tarea" (keyup.enter)="addNewTask()" autocomplete="off">
         <button (click)="addNewTask()" class="addTaskButton">+</button>
         <button class="orderButton" (click)="renderOrderedTasks()">Ordenar</button>
         <button class="removeButton" (click)="trash()"><i class="fa-regular fa-trash-can"></i></button>
