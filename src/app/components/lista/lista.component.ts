@@ -31,7 +31,16 @@ export class ListaComponent implements OnInit, AfterViewInit {
   }
 
 
-  addNewTask = () => {
+trash() {
+  const tasksContainer = document.getElementById('tasksContainer') as HTMLElement;
+  const doneTasks = tasksContainer.querySelectorAll('.done');
+  
+  doneTasks.forEach(task => {
+    task.remove();
+  });
+}
+
+  addNewTask() {
     const tasksContainer = document.getElementById('tasksContainer') as HTMLElement;
     const { value } = document.getElementById('input') as HTMLInputElement;
 
@@ -46,11 +55,13 @@ export class ListaComponent implements OnInit, AfterViewInit {
     task.classList.add('task');
 
     //Se le crea el boton para borrar la tarea
-    const button = document.createElement('button');
-    button.textContent = 'Borrar';
+    const button = document.createElement('i');
+    button.textContent = '';
 
     //Se le agrega la etiqueta trash al boton
-    button.classList.add('trash');
+    button.classList.add('trash'); 
+    button.classList.add('fa-regular');
+    button.classList.add('fa-trash-can');
 
     //Se le crea la funcion para borrar la tarea
     button.addEventListener('click', () => {

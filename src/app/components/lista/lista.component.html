@@ -13,6 +13,7 @@
         <input type="text" id="input" placeholder="Nueva tarea" autocomplete="off">
         <button (click)="addNewTask()" class="addTaskButton">+</button>
         <button class="orderButton" (click)="renderOrderedTasks()">Ordenar</button>
+        <button class="removeButton" (click)="trash()"><i class="fa-regular fa-trash-can"></i></button>
     </div>
     <div id="tasksContainer"></div>
 </div>
