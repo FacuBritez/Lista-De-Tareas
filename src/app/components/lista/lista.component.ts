@@ -8,7 +8,7 @@ import { Component, OnInit, AfterViewInit, ViewEncapsulation } from '@angular/co
   encapsulation: ViewEncapsulation.None
 })
 export class ListaComponent implements OnInit, AfterViewInit {
-  
+
   //Declarando variables de la fecha
   dateNumber: HTMLElement | undefined;
   dateText: HTMLElement | undefined;
@@ -30,7 +30,7 @@ export class ListaComponent implements OnInit, AfterViewInit {
     this.dateYear.textContent = this.date.toLocaleString('es', { year: 'numeric' });
   }
 
-  
+
   addNewTask = () => {
     const tasksContainer = document.getElementById('tasksContainer') as HTMLElement;
     const { value } = document.getElementById('input') as HTMLInputElement;
@@ -45,14 +45,30 @@ export class ListaComponent implements OnInit, AfterViewInit {
     //Se le agrega la clase task
     task.classList.add('task');
 
+    //Se le crea el boton para borrar la tarea
+    const button = document.createElement('button');
+    button.textContent = 'Borrar';
+
+    //Se le agrega la etiqueta trash al boton
+    button.classList.add('trash');
+
+    //Se le crea la funcion para borrar la tarea
+    button.addEventListener('click', () => {
+      task.remove()
+    });
+
+    //Se le agrega el boton a la tarea
+    task.appendChild(button);
+
+
     //Añadiendo la opcion de tachar
     task.addEventListener('click', this.changeTaskState);
 
-   
+
 
     //Agrega la tarea nueva como primer nodo a la lista
     tasksContainer.prepend(task);
-    (document.getElementById('input') as HTMLInputElement).value = '';  
+    (document.getElementById('input') as HTMLInputElement).value = '';
   };
 
   changeTaskState(event: Event) {
