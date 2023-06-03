@@ -60,7 +60,7 @@ export class ListaComponent implements OnInit, AfterViewInit {
     task.classList.toggle('done');
   };
 
-  /*
+
   order = () => {
     const done: any[] = [];
     const toDo: any[] = [];
@@ -77,7 +77,7 @@ export class ListaComponent implements OnInit, AfterViewInit {
     const tasksContainer = document.getElementById('tasksContainer') as HTMLElement;
     this.order().forEach(el => tasksContainer.appendChild(el))
   }
-  */
+
 
   ngOnInit() { }
 

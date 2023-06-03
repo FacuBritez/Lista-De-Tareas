@@ -12,7 +12,7 @@
     <div class="form">
         <input type="text" id="input" placeholder="Nueva tarea" autocomplete="off">
         <button (click)="addNewTask()" class="addTaskButton">+</button>
-        <button type="button" class="orderButton" onclick="renderOrderedTasks()">ordenar</button>
+        <button class="orderButton" (click)="renderOrderedTasks()">ordenar</button>
     </div>
     <div id="tasksContainer"></div>
 </div>
