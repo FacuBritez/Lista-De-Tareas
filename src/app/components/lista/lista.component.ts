@@ -56,7 +56,6 @@ trash() {
 
     //Se le crea el boton para borrar la tarea
     const button = document.createElement('i');
-    button.textContent = '';
 
     //Se le agrega la etiqueta trash al boton
     button.classList.add('trash'); 
