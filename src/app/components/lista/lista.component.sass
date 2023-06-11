@@ -6,93 +6,85 @@
     max-width: 350px
     border-radius: 5px
 
+    // FECHA
 
-// FECHA
+    .date
+        display: flex
+        align-items: center
+        justify-content: space-between
 
-.date
-    display: flex
-    align-items: center
-    justify-content: space-between
+        .dateRight
+            font-size: 50px
 
-.dateRight
-    font-size: 50px
+            #dateMonth,
+            #dateNumber
+                font-weight: bold
 
-#dateText
-    letter-spacing: 3px
-    text-transform: upperCase
+            #dateMonth,
+            #dateYear
+                margin-left: 7px
+                font-size: 20px
 
-#dateMonth,
-#dateNumber,
-#dateText
-    font-weight: bold
+        #dateText
+            letter-spacing: 3px
+            text-transform: upperCase
+            font-weight: bold
 
-#dateMonth,
-#dateYear
-    margin-left: 7px
-    font-size: 20px
+    // FORM        
 
+    .form
+        margin: 20px 0
+        display: grid
+        grid-auto-flow: column
+        grid-template-columns: auto 35px auto
+        grid-column-gap: 15px
 
+        input
+            border: none
+            padding-left: 10px
+            background: lightgrey
+        input:focus
+            outline: none
 
-// FORM        
+        .addTaskButton,
+        .orderButton,
+        .removeButton
+            border: none
+            font-weight: bold
+            cursor: pointer
+            border-radius: 5px
 
-.form
-    margin: 20px 0
-    display: grid
-    grid-auto-flow: column
-    grid-template-columns: auto 35px auto
-    grid-column-gap: 15px
+        .addTaskButton
+            height: 35px
+            border-radius: 50%
+            font-size: 18px
+            background-color: lightgrey
 
-input
-    border: none
-    padding-left: 10px
-    background: lightgrey
+        .orderButton
+            background-color: skyblue
 
-input:focus
-    outline: none
+        .removeButton
+            background-color: lightgrey
 
-.addTaskButton,
-.orderButton,
-.removeButton
-    border: none
-    font-weight: bold
-    cursor: pointer
+    // TAREAS
 
-.addTaskButton
-    height: 35px
-    border-radius: 50%
-    font-size: 18px
-    background-color: lightgrey
+    .task
+        background-color: #B5FFFC55
+        padding: 15px
+        margin-top: 15px
+        color: black
+        cursor: pointer
+        border-radius: 5px
+        display: flex
+        justify-content: space-between
+        transition: 1s
 
-.orderButton
-    background-color: skyblue
-    border-radius: 5px
+    .done
+        background-color: lightgrey
+        text-decoration: line-through
+        color: darkgrey
+        i
+            display: none
 
-.removeButton
-    background-color: lightgrey
-    border-radius: 5px
-
-
-
-// TAREAS
-
-.task
-    background-color: #B5FFFC55
-    padding: 15px
-    margin-top: 15px
-    color: black
-    cursor: pointer
-    border-radius: 5px
-    display: flex
-    justify-content: space-between
-    transition: 1s
-
-.done
-    background-color: lightgrey
-    text-decoration: line-through
-    color: darkgrey
-    i
-        display: none
-
-
-.button
-    margin-right: 0px
+    .button
+        margin-right: 0px
